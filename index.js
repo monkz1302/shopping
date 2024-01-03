@@ -27,27 +27,27 @@ var commodity = [
   ["img/table5.jpg", "table5", "桌子樣式五"],
 ];
 
-/* 
+window.onload = function () {
+  /* 
 商品列表html標籤
 <figure class="featured">
 <img src="img/clothing1.jpg" alt="clothing1" />
 <figcaption>衣服樣式一</figcaption>
 </figure> 
 */
-var len = commodity.length;
-var s = "";
-for (var j = 0; j < len; j++) {
-  s += '<figure class="featured"><img src="';
-  s += commodity[j][0];
-  s += '" alt="';
-  s += commodity[j][1];
-  s += '" /><figcaption>';
-  s += commodity[j][2];
-  s += "</figcaption></figure>";
-}
-
-window.onload = function () {
-  //寫入商品列表
   var oDiv = document.getElementsByClassName("portfolio");
-  oDiv[0].innerHTML = s;
+  var len = commodity.length;
+  for (var i = 0; i < len; i++) {
+    var oFigure = document.createElement("figure");
+    oFigure.className = "featured";
+    var oImg = document.createElement("img");
+    oImg.src = commodity[i][0];
+    oImg.alt = commodity[i][1];
+    var oFigcaption = document.createElement("figcaption");
+    var oFigcap_text = document.createTextNode(commodity[i][2]);
+    oFigcaption.appendChild(oFigcap_text);
+    oFigure.appendChild(oImg);
+    oFigure.appendChild(oFigcaption);
+    oDiv[0].appendChild(oFigure);
+  }
 };

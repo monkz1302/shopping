@@ -27,6 +27,7 @@ body {
   text-align: right;
 }
 
+/* 如果有支援grid */
 @supports (display: grid) {
   .portfolio {
     display: grid;
@@ -36,6 +37,7 @@ body {
     grid-auto-flow: dense;
   }
 
+  /* 調整商品垂直布局 */
   .portfolio > figure {
     display: flex;
     flex-direction: column;
@@ -47,6 +49,7 @@ body {
     max-height: 400px;
   }
 
+  /* 放大商品陳列區間 */
   .portfolio .featured {
     grid-row: span 2;
     grid-column: span 2;
